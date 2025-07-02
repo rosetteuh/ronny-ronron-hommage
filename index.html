@@ -74,6 +74,7 @@
 .photo-frame {
   position: relative;
   width: 380px;
+  height: 285px;  /* hauteur fixe */
   margin: 20px auto;
   border-radius: 20px;
   box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
@@ -81,16 +82,15 @@
 }
 
 .photo-frame img.ronny {
+  position: absolute;
+  top: 0; left: 0;
   width: 100%;
-  max-height: 285px; /* limite la hauteur de la photo */
-  height: auto;
-  display: block;
+  height: 100%;
+  object-fit: cover;  /* IMPORTANT */
   border-radius: 15px;
-  position: relative;
   z-index: 2;
   margin: 0;
 }
-
 
 
 .photo-frame img.cadre {
