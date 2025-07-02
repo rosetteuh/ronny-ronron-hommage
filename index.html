@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hommage à Ronny</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap');
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
+      overflow-x: hidden;
+      color: white;
+      font-family: 'Open Sans', sans-serif;
+      text-align: center;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: transparent;
+      background-image:
+        radial-gradient(circle, rgba(255,215,0,0.8) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,165,0,0.6) 2px, transparent 2px),
+        radial-gradient(circle, rgba(255,215,0,0.4) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,140,0,0.3) 2px, transparent 2px);
+      background-size: 120px 120px, 180px 180px, 90px 90px, 220px 220px;
+      background-position: center center;
+      animation: moveStars 200s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes moveStars {
+      from { background-position: 0 0, 0 0, 0 0, 0 0; }
+      to { background-position: -5000px 2500px, -4000px 2000px, -4500px 2250px, -4800px 2400px; }
+    }
+
+    .container {
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      margin-bottom: 10px;
+      color: #ffd700;
+    }
+
+    .photo-frame {
+      border: 4px solid gold;
+      display: inline-block;
+      border-radius: 15px;
+      overflow: hidden;
+      margin: 20px 0 10px 0;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+      max-width: 320px;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .candles {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .candle {
+      width: 40px;
+      height: 60px;
+      position: relative;
+    }
+
+    .candle .flame {
+      width: 10px;
+      height: 20px;
+      background: orange;
+      border-radius: 50% 50% 50% 50%;
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: flicker 1s infinite alternate;
+      box-shadow: 0 0 10px orange;
+    }
+
+    .candle .wax {
+      width: 100%;
+      height: 100%;
+      background: #f2e3c6;
+      border-radius: 5px;
+    }
+
+    @keyframes flicker {
+      from { transform: translateX(-50%) scaleY(1); opacity: 1; }
+      to { transform: translateX(-50%) scaleY(0.8); opacity: 0.8; }
+    }
+
+    .text {
+      max-width: 600px;
+      margin: 20px auto 30px auto;
+      font-size: 1.2em;
+      line-height: 1.6;
+      padding: 0 10px;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Ronny, étoile aventurière</h1>
+
+    <div class="photo-frame">
+      <img src="IMG_7924.jpeg" alt="Ronny, chat roux aventurier">
+    </div>
+
+    <div class="candles">
+      <div class="candle">
+        <div class="flame"></div>
+        <div class="wax"></div>
+      </div>
+      <div class="candle">
+        <div class="flame"></div>
+        <div class="wax"></div>
+      </div>
+      <div class="candle">
+        <div class="flame"></div>
+        <div class="wax"></div>
+      </div>
+    </div>
+
+    <div class="text">
+      <p>Ronny, tu as illuminé ma vie comme un rayon de soleil.<br>
+      Toi, le chat libre, courageux et aventurier.<br>
+      Même si ton passé avant moi reste un mystère,<br>
+      tu m’as offert le plus beau présent : ton amour.</p>
+
+      <p>Aujourd’hui, tu rejoins les étoiles,<br>
+      mais chaque battement de mon cœur<br>
+      continue de te faire vivre.</p>
+
+      <p>Repose en paix, mon chat doré,<br>
+      mon petit roi céleste.</p>
+    </div>
+<!-- 🌟 Section hommage : Laissez un mot doux -->
+<section style="text-align: center; padding: 40px 20px; background: #fffaf0;">
+  <h2 style="font-family: serif; color: #c67b00; font-size: 1.8em; margin-bottom: 10px;">
+    ✨ Laissez un mot d’amour pour Ronny ✨
+  </h2>
+  <p style="color: #a65f00; font-style: italic; margin-bottom: 30px;">
+    Vos pensées et souvenirs réchaufferont son étoile à jamais.
+  </p>
+
+  <!-- 📝 Bloc Disqus -->
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = window.location.href;  // L'URL de ta page hommage
+      this.page.identifier = "ronny-page";   // Un identifiant unique (garde-le si tu n'as qu'une page)
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://ronnyhommage.disqus.com/embed.js';  // Remplace si ton shortname est différent
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+ 
+    <footer>
+      À jamais dans mon cœur.
+    </footer>
+  </div>
+
+</body>
+</html>
