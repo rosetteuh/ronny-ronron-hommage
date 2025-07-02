@@ -72,31 +72,28 @@
       text-shadow: 0 0 10px #ffcc00;
     }
 
-    /* Nouveau cadre doré et image Ronny */
     .photo-frame {
-      position: relative;
       width: 380px;
       height: 285px;
       margin: 20px auto;
       border-radius: 20px;
       overflow: hidden;
-      background: linear-gradient(145deg, #f9d976, #f39f26);
-      box-shadow:
-        0 0 15px #f9d976,
-        inset 0 0 15px #f9f26;
+      box-shadow: 0 0 30px 10px rgba(255, 215, 0, 0.7);
+      background: linear-gradient(135deg, #f9d976, #f39f26);
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     .photo-frame img.ronny {
+      width: auto;
+      height: 285px;
       max-width: 100%;
-      max-height: 100%;
       object-fit: contain;
       border-radius: 15px;
       box-shadow: 0 0 20px #f9d976aa;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
     /* Bougies */
