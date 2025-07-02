@@ -9,31 +9,45 @@
     @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap');
 
     @media (max-width: 480px) {
-  .photo-frame {
-    width: 90vw; /* s’adapte presque à toute la largeur */
-    height: auto; /* hauteur auto pour garder le ratio */
-    box-shadow:
-      0 0 6px 1.5px rgba(255, 215, 0, 0.8),
-      0 0 12px 2px rgba(255, 223, 90, 0.4);
-  }
+      .photo-frame {
+        width: 90vw; /* s’adapte presque à toute la largeur */
+        height: auto; /* hauteur auto pour garder le ratio */
+        box-shadow:
+          0 0 6px 1.5px rgba(255, 215, 0, 0.8),
+          0 0 12px 2px rgba(255, 223, 90, 0.4);
+      }
 
-  .photo-frame img.ronny {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
+      .photo-frame img.ronny {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
 
-  .candles {
-    justify-content: center;
-    gap: 15px; /* réduire un peu l’écart */
-    flex-wrap: wrap; /* permettre un passage à la ligne si besoin */
-  }
+      /* Suppression du fond blanc et ombre dans section hommage */
+      section > div {
+        background: transparent !important;
+        box-shadow: none !important;
+        padding: 15px !important;
+      }
 
-  .container, section > div {
-    background: transparent !important;
-    box-shadow: none !important;
-  }
-}
+      /* Bougies mieux adaptées */
+      .candles {
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .candle {
+        width: 45px;
+        height: 70px;
+      }
+
+      .candle .flame {
+        width: 12px;
+        height: 24px;
+        box-shadow: 0 0 20px 8px orange, 0 0 30px 15px gold;
+      }
+    }
 
     .star {
       position: fixed;
@@ -99,33 +113,30 @@
       text-shadow: 0 0 10px #ffcc00;
     }
 
- .photo-frame {
-  width: 380px;
-  height: 285px;
-  margin: 20px auto;
-  border-radius: 20px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  box-shadow:
-    0 0 6px 1.5px rgba(255, 215, 0, 0.8), /* contour doré fin */
-    0 0 12px 2px rgba(255, 223, 90, 0.4); /* lueur douce très légère */
-}
+    .photo-frame {
+      width: 380px;
+      height: 285px;
+      margin: 20px auto;
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      box-shadow:
+        0 0 6px 1.5px rgba(255, 215, 0, 0.8),
+        0 0 12px 2px rgba(255, 223, 90, 0.4);
+    }
 
-.photo-frame img.ronny {
-  width: auto;
-  height: 285px;
-  max-width: 100%;
-  object-fit: contain;
-  border-radius: 15px;
-  box-shadow: 0 0 6px 1.5px rgba(255, 215, 0, 0.8); /* léger contour */
-  background: transparent;
-}
-
-
-
+    .photo-frame img.ronny {
+      width: auto;
+      height: 285px;
+      max-width: 100%;
+      object-fit: contain;
+      border-radius: 15px;
+      box-shadow: 0 0 6px 1.5px rgba(255, 215, 0, 0.8);
+      background: transparent;
+    }
 
     /* Bougies */
     .candles {
