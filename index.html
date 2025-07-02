@@ -8,6 +8,25 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap');
 
+    .star {
+  position: fixed;
+  top: -10px;
+  width: 5px;
+  height: 5px;
+  background: #fdd700;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: fall 5s linear infinite;
+  z-index: 2;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
     html, body {
       margin: 0;
       padding: 0;
@@ -121,6 +140,23 @@
     }
   </style>
 </head>
+<script>
+  function createStar() {
+    const star = document.createElement('div');
+    star.classList.add('star');
+    star.style.left = Math.random() * window.innerWidth + 'px';
+    star.style.animationDuration = (Math.random() * 3 + 2) + 's'; // entre 2 et 5s
+    star.style.opacity = Math.random();
+    document.body.appendChild(star);
+
+    setTimeout(() => {
+      star.remove();
+    }, 5000);
+  }
+
+  setInterval(createStar, 200);
+</script>
+
 <body>
 
   <div class="container">
