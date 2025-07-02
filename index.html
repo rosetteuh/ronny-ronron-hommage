@@ -74,12 +74,12 @@
 
  .photo-frame {
   position: relative;
-  width: 380px; /* largeur réduite pour que ça ne soit pas trop grand */
-  height: auto; /* laisse la hauteur s’adapter */
+  width: 380px; /* largeur fixe pour contrôler la taille */
   margin: 20px auto;
   border-radius: 20px;
   box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
   overflow: hidden;
+  height: auto; /* laisse la hauteur s'adapter à l'image */
 }
 
 .photo-frame img.ronny {
@@ -94,15 +94,15 @@
 
 .photo-frame img.cadre {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* garde le cadre dans son ratio */
   pointer-events: none;
   z-index: 3;
   border-radius: 20px;
 }
+
 
 
     /* Bougies */
