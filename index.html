@@ -3,230 +3,205 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="Logo.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hommage à Ronny</title>
-
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap');
 
-    /* Fond féerique plus clair, dégradé bleu ciel avec étoiles lumineuses */
-    body, html {
-      margin: 0; padding: 0; height: 100%;
-      background: radial-gradient(circle at top center, #e0f7ff 10%, #a4d8ff 70%, #6bb7ff 100%);
-      overflow-x: hidden;
-      font-family: 'Open Sans', sans-serif;
-      color: #2b2b2b;
-      text-align: center;
-      position: relative;
+    .star {
+      position: fixed;
+      top: -10px;
+      width: 5px;
+      height: 5px;
+      background: #fdd700;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: fall 5s linear infinite;
+      z-index: 2;
     }
 
-    /* Étoiles animées */
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: linear-gradient(to bottom, #3f87a6, #ebf8e1, #f69d3c);
+      overflow-x: hidden;
+      color: white;
+      font-family: 'Open Sans', sans-serif;
+      text-align: center;
+    }
+
     body::before {
-      content: "";
+      content: '';
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      pointer-events: none;
-      background:
-        radial-gradient(2px 2px at 10% 20%, #ffffff88, transparent 70%),
-        radial-gradient(1.5px 1.5px at 40% 40%, #ffffffcc, transparent 70%),
-        radial-gradient(2.5px 2.5px at 70% 80%, #ffffff99, transparent 70%),
-        radial-gradient(1.8px 1.8px at 85% 15%, #ffffffaa, transparent 70%);
-      background-repeat: repeat;
-      animation: starTwinkle 8s ease-in-out infinite alternate;
-      background-size: 100px 100px, 150px 150px, 120px 120px, 90px 90px;
+      background: transparent;
+      background-image:
+        radial-gradient(circle, rgba(255,215,0,0.8) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,165,0,0.6) 2px, transparent 2px),
+        radial-gradient(circle, rgba(255,215,0,0.4) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,140,0,0.3) 2px, transparent 2px);
+      background-size: 120px 120px, 180px 180px, 90px 90px, 220px 220px;
+      background-position: center center;
+      animation: moveStars 200s linear infinite;
+      z-index: -1;
     }
 
-    @keyframes starTwinkle {
-      0% {
-        filter: brightness(1);
-      }
-      100% {
-        filter: brightness(1.8);
-      }
+    @keyframes moveStars {
+      from { background-position: 0 0, 0 0, 0 0, 0 0; }
+      to { background-position: -5000px 2500px, -4000px 2000px, -4500px 2250px, -4800px 2400px; }
     }
 
-    /* Conteneur général */
     .container {
       padding: 40px 20px;
-      max-width: 700px;
-      margin: 0 auto;
     }
 
-    /* Titre en belle police cursive */
     h1 {
       font-family: 'Great Vibes', cursive;
-      font-size: 3.5rem;
+      font-size: 3em;
       margin-bottom: 10px;
-      color: #005f99;
-      text-shadow: 0 0 5px #8cd3ff;
+      color: #ffd700;
+      text-shadow: 0 0 10px #ffcc00;
     }
 
-    /* Cadre doré autour de la photo */
+    /* Photo + cadre */
     .photo-frame {
       position: relative;
       display: inline-block;
-      border: 8px solid;
-      border-image: linear-gradient(45deg, #ffd700, #ffbf00, #ffeb3b, #ffbf00, #ffd700) 1;
-      border-radius: 20px;
-      box-shadow:
-        0 0 15px 3px #ffdd55cc,
-        inset 0 0 10px 2px #fff6a1cc;
-      overflow: hidden;
-      max-width: 320px;
-      margin: 30px auto;
-      background: #fff9d6;
+      width: 450px; /* Cadre plus grand */
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+      margin: 20px 0 10px 0;
+      overflow: visible;
     }
 
-    /* Image Ronny */
     .photo-frame img.ronny {
-      display: block;
       width: 100%;
+      height: auto;
       border-radius: 12px;
-      filter: drop-shadow(0 0 4px #ffdd55);
+      display: block;
       position: relative;
       z-index: 1;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
     }
 
-    /* Image cadre superposée - si tu préfères garder cette image à part */
     .photo-frame img.cadre {
       position: absolute;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
+      object-fit: contain;
       pointer-events: none;
       z-index: 2;
-      border-radius: 20px;
-      mix-blend-mode: screen;
-      opacity: 0.8;
     }
 
     /* Bougies */
     .candles {
       display: flex;
       justify-content: center;
-      gap: 30px;
-      margin-top: 25px;
+      gap: 25px;
+      margin-top: 15px;
     }
 
     .candle {
+      width: 50px;
+      height: 75px;
       position: relative;
-      width: 40px;
-      height: 80px;
-      background: linear-gradient(to bottom, #fff5cc 0%, #ffd966 100%);
-      border-radius: 10px 10px 3px 3px;
-      box-shadow:
-        inset 0 0 10px 2px #fff5cc,
-        0 3px 10px 1px #f9d24c;
-      filter: drop-shadow(0 0 6px #ffd966);
     }
 
-    /* Flamme */
-    .flame {
+    .candle .flame {
+      width: 14px;
+      height: 28px;
+      background: orange;
+      border-radius: 50% 50% 50% 50%;
       position: absolute;
-      top: -25px;
+      top: -28px;
       left: 50%;
       transform: translateX(-50%);
-      width: 14px;
-      height: 30px;
-      background: radial-gradient(circle at 50% 40%, #ffec42, #ff9a00 70%, transparent 90%);
-      border-radius: 50% 50% 40% 40% / 60% 60% 80% 80%;
-      box-shadow:
-        0 0 8px 2px #ffbb22,
-        0 0 20px 6px #ffdd44;
-      animation: flicker 1.2s infinite alternate ease-in-out;
-      filter: drop-shadow(0 0 3px #ffbb22);
-      mix-blend-mode: screen;
-      opacity: 0.9;
-      z-index: 10;
+      animation: flicker 1s infinite alternate;
+      box-shadow: 0 0 25px 10px orange, 0 0 35px 20px gold;
     }
 
-    /* Petite animation de flamme pour flicker */
+    .candle::after {
+      content: "";
+      position: absolute;
+      bottom: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 35px;
+      height: 8px;
+      background: radial-gradient(ellipse at center, rgba(255,140,0,0.5) 0%, transparent 80%);
+    }
+
+    .candle .wax {
+      width: 100%;
+      height: 100%;
+      background: #f2e3c6;
+      border-radius: 6px;
+      box-shadow: inset 0 0 10px #d4c29e;
+    }
+
     @keyframes flicker {
-      0% {
-        transform: translateX(-50%) scale(1, 1);
-        opacity: 0.9;
-        filter: drop-shadow(0 0 3px #ffbb22);
-      }
-      50% {
-        transform: translateX(calc(-50% + 1px)) scale(1.05, 1.1);
-        opacity: 1;
-        filter: drop-shadow(0 0 6px #ffdd44);
-      }
-      100% {
-        transform: translateX(calc(-50% - 1px)) scale(0.95, 1.05);
-        opacity: 0.85;
-        filter: drop-shadow(0 0 4px #ffbb22);
-      }
+      from { transform: translateX(-50%) scaleY(1); opacity: 1; }
+      to { transform: translateX(-50%) scaleY(0.8); opacity: 0.8; }
     }
 
-    /* Texte d'hommage */
+    /* Texte */
     .text {
-      max-width: 600px;
-      margin: 30px auto 40px auto;
-      font-size: 1.3rem;
+      max-width: 650px;
+      margin: 25px auto 40px auto;
+      font-size: 1.3em;
       line-height: 1.6;
-      color: #2b2b2b;
-      background: #fef9e7cc;
-      padding: 25px 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px #ffdd55aa;
-      font-family: 'Open Sans', sans-serif;
+      padding: 0 15px;
+      color: #3a2200;
+      text-shadow: 0 0 8px #ffdd55;
     }
 
-    /* Footer */
     footer {
+      margin-top: 50px;
+      font-size: 1.1em;
+      opacity: 0.8;
       font-family: 'Great Vibes', cursive;
-      font-size: 2rem;
-      color: #a68b00;
-      text-shadow: 0 0 3px #ffd700cc;
-      margin-bottom: 40px;
+      color: #ffcc00;
+      text-shadow: 0 0 10px #ffa500;
     }
 
-    /* Section commentaire Disqus */
+    /* Section hommage */
     section {
-      max-width: 700px;
-      margin: 40px auto 60px auto;
-      background: #fffdf7;
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 0 15px #ffd70088;
-      color: #5a4200;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    section > div {
+      background: #fffaf0;
+      padding: 25px;
+      border-radius: 12px;
+      max-width: 650px;
+      margin: 0 auto;
+      box-shadow: 0 0 15px #c67b00aa;
     }
 
     section h2 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2rem;
+      font-family: serif;
+      color: #c67b00;
+      font-size: 1.9em;
       margin-bottom: 10px;
     }
 
     section p {
+      color: #a65f00;
       font-style: italic;
-      margin-top: 0;
-      margin-bottom: 15px;
-    }
-
-    /* Responsive */
-    @media (max-width: 480px) {
-      .photo-frame {
-        max-width: 90vw;
-        border-width: 5px;
-      }
-
-      .candles {
-        gap: 15px;
-      }
-
-      .candle {
-        width: 30px;
-        height: 60px;
-      }
-
-      .flame {
-        width: 10px;
-        height: 22px;
-        top: -18px;
-      }
+      margin-bottom: 0;
+      font-size: 1.1em;
     }
   </style>
 </head>
@@ -243,12 +218,15 @@
     <div class="candles">
       <div class="candle">
         <div class="flame"></div>
+        <div class="wax"></div>
       </div>
       <div class="candle">
         <div class="flame"></div>
+        <div class="wax"></div>
       </div>
       <div class="candle">
         <div class="flame"></div>
+        <div class="wax"></div>
       </div>
     </div>
 
@@ -266,28 +244,52 @@
       mon petit roi céleste.</p>
     </div>
 
-    <footer>À jamais dans mon cœur.</footer>
+    <footer>
+      À jamais dans mon cœur.
+    </footer>
 
+    <br />
+
+    <!-- 🌟 Section hommage : Laissez un mot doux -->
     <section>
-      <h2>✨ Laissez un mot d’amour pour Ronny ✨</h2>
-      <p>Vos pensées et souvenirs réchaufferont son étoile à jamais.</p>
+      <div>
+        <h2>✨ Laissez un mot d’amour pour Ronny ✨</h2>
+        <p>Vos pensées et souvenirs réchaufferont son étoile à jamais.</p>
+      </div>
 
-      <div id="disqus_thread"></div>
+      <!-- 📝 Bloc Disqus -->
+      <div id="disqus_thread" style="margin-top: 30px;"></div>
+      <script>
+        var disqus_config = function () {
+          this.page.url = window.location.href;
+          this.page.identifier = "ronny-page";
+        };
+        (function() {
+          var d = document, s = d.createElement('script');
+          s.src = 'https://ronnyhommage.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
     </section>
-  </div>
 
-  <script>
-    var disqus_config = function () {
-      this.page.url = window.location.href;
-      this.page.identifier = "ronny-page";
-    };
-    (function () {
-      var d = document, s = d.createElement('script');
-      s.src = 'https://ronnyhommage.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
+    <script>
+      function createStar() {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.left = Math.random() * window.innerWidth + 'px';
+        star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        star.style.opacity = Math.random();
+        document.body.appendChild(star);
+
+        setTimeout(() => {
+          star.remove();
+        }, 5000);
+      }
+      setInterval(createStar, 200);
+    </script>
+
+  </div>
 
 </body>
 </html>
