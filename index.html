@@ -71,40 +71,33 @@
       color: #ffd700;
       text-shadow: 0 0 10px #ffcc00;
     }
-.photo-frame {
-  position: relative;
-  width: 380px;
-  height: 285px;
-  margin: 20px auto;
-  border-radius: 20px;
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
-  overflow: hidden;
-  background-color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.photo-frame img.ronny {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  border-radius: 15px;
-  position: relative;
-  z-index: 2;
-}
+    /* Nouveau cadre doré et image Ronny */
+    .photo-frame {
+      position: relative;
+      width: 380px;
+      height: 285px;
+      margin: 20px auto;
+      border-radius: 20px;
+      overflow: hidden;
+      background: linear-gradient(145deg, #f9d976, #f39f26);
+      box-shadow:
+        0 0 15px #f9d976,
+        inset 0 0 15px #f9f26;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.photo-frame img.cadre {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  pointer-events: none;
-  z-index: 3;
-  border-radius: 20px;
-}
-
+    .photo-frame img.ronny {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #f9d976aa;
+      position: relative;
+      z-index: 1;
+    }
 
     /* Bougies */
     .candles {
@@ -214,7 +207,6 @@
 
     <div class="photo-frame">
       <img src="IMG_7924.jpeg" alt="Ronny, chat roux aventurier" class="ronny" />
-      <img src="cadre.png" alt="Cadre doré" class="cadre" />
     </div>
 
     <div class="candles">
