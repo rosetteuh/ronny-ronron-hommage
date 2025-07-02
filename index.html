@@ -72,31 +72,33 @@
       text-shadow: 0 0 10px #ffcc00;
     }
 
-    .photo-frame {
-      width: 380px;
-      height: 285px;
-      margin: 20px auto;
-      border-radius: 20px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow:
-        0 0 8px 2px rgba(255, 215, 0, 0.6),
-        0 0 20px 6px rgba(255, 223, 90, 0.3);
-    }
+   .photo-frame {
+  width: 380px;
+  height: 285px;
+  margin: 20px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent; /* <-- PLUS DE FOND NOIR */
+  box-shadow:
+    0 0 6px 2px rgba(255, 215, 0, 0.7),  /* contour lumineux doré */
+    0 0 15px 5px rgba(255, 223, 90, 0.3); /* lueur douce autour */
+}
 
-    .photo-frame img.ronny {
-      width: auto;
-      height: 285px;
-      max-width: 100%;
-      object-fit: contain;
-      border-radius: 15px;
-      position: relative;
-      z-index: 2;
-      box-shadow:
-        0 0 8px 2px rgba(255, 215, 0, 0.7);
-    }
+.photo-frame img.ronny {
+  width: auto;
+  height: 285px;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 15px;
+  position: relative;
+  z-index: 2;
+  box-shadow:
+    0 0 8px 2px rgba(255, 215, 0, 0.7); /* petite lueur dorée sur la photo */
+}
+
 
     /* Bougies */
     .candles {
