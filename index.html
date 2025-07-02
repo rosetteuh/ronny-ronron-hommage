@@ -8,111 +8,7 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap');
 
-    @media (max-width: 480px) {
-      .photo-frame {
-        width: 90vw; /* s’adapte presque à toute la largeur */
-        height: auto; /* hauteur auto pour garder le ratio */
-        box-shadow:
-          0 0 6px 1.5px rgba(255, 215, 0, 0.8),
-          0 0 12px 2px rgba(255, 223, 90, 0.4);
-      }
-
-      .photo-frame img.ronny {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-      }
-
-      /* Suppression du fond blanc et ombre dans section hommage */
-      section > div {
-        background: transparent !important;
-        box-shadow: none !important;
-        padding: 15px !important;
-      }
-
-      /* Bougies mieux adaptées */
-      .candles {
-        justify-content: center;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
-
-      .candle {
-        width: 45px;
-        height: 70px;
-      }
-
-      .candle .flame {
-        width: 12px;
-        height: 24px;
-        box-shadow: 0 0 20px 8px orange, 0 0 30px 15px gold;
-      }
-    }
-
-    .star {
-      position: fixed;
-      top: -10px;
-      width: 5px;
-      height: 5px;
-      background: #fdd700;
-      border-radius: 50%;
-      opacity: 0.8;
-      animation: fall 5s linear infinite;
-      z-index: 2;
-    }
-
-    @keyframes fall {
-      to {
-        transform: translateY(100vh);
-        opacity: 0;
-      }
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background: linear-gradient(to bottom, #3f87a6, #ebf8e1, #f69d3c);
-      overflow-x: hidden;
-      color: white;
-      font-family: 'Open Sans', sans-serif;
-      text-align: center;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: transparent;
-      background-image:
-        radial-gradient(circle, rgba(255,215,0,0.8) 1px, transparent 1px),
-        radial-gradient(circle, rgba(255,165,0,0.6) 2px, transparent 2px),
-        radial-gradient(circle, rgba(255,215,0,0.4) 1px, transparent 1px),
-        radial-gradient(circle, rgba(255,140,0,0.3) 2px, transparent 2px);
-      background-size: 120px 120px, 180px 180px, 90px 90px, 220px 220px;
-      background-position: center center;
-      animation: moveStars 200s linear infinite;
-      z-index: -1;
-    }
-
-    @keyframes moveStars {
-      from { background-position: 0 0, 0 0, 0 0, 0 0; }
-      to { background-position: -5000px 2500px, -4000px 2000px, -4500px 2250px, -4800px 2400px; }
-    }
-
-    .container {
-      padding: 40px 20px;
-    }
-
-    h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3em;
-      margin-bottom: 10px;
-      color: #ffd700;
-      text-shadow: 0 0 10px #ffcc00;
-    }
-
+    /* Cadre doré autour de la photo, visible partout */
     .photo-frame {
       width: 380px;
       height: 285px;
@@ -123,6 +19,7 @@
       align-items: center;
       justify-content: center;
       background: transparent;
+      /* cadre doré lumineux */
       box-shadow:
         0 0 6px 1.5px rgba(255, 215, 0, 0.8),
         0 0 12px 2px rgba(255, 223, 90, 0.4);
@@ -144,6 +41,7 @@
       justify-content: center;
       gap: 25px;
       margin-top: 15px;
+      flex-wrap: nowrap;
     }
 
     .candle {
@@ -184,12 +82,70 @@
       box-shadow: inset 0 0 10px #d4c29e;
     }
 
+    /* Pas de rectangle beige/blanc derrière la photo ni ailleurs */
+    section > div {
+      background: transparent !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      margin: 0 auto 40px auto;
+      max-width: 650px;
+      border-radius: 0 !important;
+      color: #a65f00;
+      font-style: italic;
+      font-size: 1.1em;
+      text-align: center;
+    }
+
+    /* ======= Styles généraux ======= */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: linear-gradient(to bottom, #3f87a6, #ebf8e1, #f69d3c);
+      overflow-x: hidden;
+      color: white;
+      font-family: 'Open Sans', sans-serif;
+      text-align: center;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image:
+        radial-gradient(circle, rgba(255,215,0,0.8) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,165,0,0.6) 2px, transparent 2px),
+        radial-gradient(circle, rgba(255,215,0,0.4) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,140,0,0.3) 2px, transparent 2px);
+      background-size: 120px 120px, 180px 180px, 90px 90px, 220px 220px;
+      background-position: center center;
+      animation: moveStars 200s linear infinite;
+      z-index: -1;
+    }
+
     @keyframes flicker {
       from { transform: translateX(-50%) scaleY(1); opacity: 1; }
       to { transform: translateX(-50%) scaleY(0.8); opacity: 0.8; }
     }
 
-    /* Texte */
+    @keyframes moveStars {
+      from { background-position: 0 0, 0 0, 0 0, 0 0; }
+      to { background-position: -5000px 2500px, -4000px 2000px, -4500px 2250px, -4800px 2400px; }
+    }
+
+    .container {
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      margin-bottom: 10px;
+      color: #ffd700;
+      text-shadow: 0 0 10px #ffcc00;
+    }
+
     .text {
       max-width: 650px;
       margin: 25px auto 40px auto;
@@ -198,6 +154,7 @@
       padding: 0 15px;
       color: #3a2200;
       text-shadow: 0 0 8px #ffdd55;
+      font-style: normal;
     }
 
     footer {
@@ -209,19 +166,10 @@
       text-shadow: 0 0 10px #ffa500;
     }
 
-    /* Section hommage */
     section {
       text-align: center;
       padding: 40px 20px;
-    }
-
-    section > div {
-      background: #fffaf0;
-      padding: 25px;
-      border-radius: 12px;
-      max-width: 650px;
-      margin: 0 auto;
-      box-shadow: 0 0 15px #c67b00aa;
+      margin-top: 40px;
     }
 
     section h2 {
@@ -232,10 +180,55 @@
     }
 
     section p {
-      color: #a65f00;
-      font-style: italic;
       margin-bottom: 0;
-      font-size: 1.1em;
+    }
+
+    .star {
+      position: fixed;
+      top: -10px;
+      width: 5px;
+      height: 5px;
+      background: #fdd700;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: fall 5s linear infinite;
+      z-index: 2;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+
+    /* Mobile : on garde le cadre doré aussi, on ajuste juste la taille */
+    @media (max-width: 480px) {
+      .photo-frame {
+        width: 90vw;
+        height: auto;
+      }
+      .photo-frame img.ronny {
+        width: 100%;
+        height: auto;
+      }
+
+      .candles {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .candle {
+        width: 45px;
+        height: 70px;
+      }
+
+      .candle .flame {
+        width: 12px;
+        height: 24px;
+        box-shadow: 0 0 20px 8px orange, 0 0 30px 15px gold;
+      }
     }
   </style>
 </head>
@@ -244,6 +237,7 @@
   <div class="container">
     <h1>Ronny, étoile aventurière</h1>
 
+    <!-- Cadre doré autour de la photo, pas de rectangle derrière -->
     <div class="photo-frame">
       <img src="IMG_7924.jpeg" alt="Ronny, chat roux aventurier" class="ronny" />
     </div>
@@ -283,14 +277,13 @@
 
     <br />
 
-    <!-- 🌟 Section hommage : Laissez un mot doux -->
     <section>
+      <!-- Ici plus de rectangle blanc/beige, fond transparent -->
       <div>
         <h2>✨ Laissez un mot d’amour pour Ronny ✨</h2>
         <p>Vos pensées et souvenirs réchaufferont son étoile à jamais.</p>
       </div>
 
-      <!-- 📝 Bloc Disqus -->
       <div id="disqus_thread" style="margin-top: 30px;"></div>
       <script>
         var disqus_config = function () {
@@ -321,7 +314,6 @@
       }
       setInterval(createStar, 200);
     </script>
-
   </div>
 
 </body>
