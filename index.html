@@ -19,6 +19,28 @@
   animation: fall 5s linear infinite;
   z-index: 2;
 }
+.photo-frame {
+  position: relative;
+  width: 320px;
+  height: auto;
+}
+
+.photo-frame .cadre {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.photo-frame .ronny {
+  width: 85%;
+  margin: 7.5%;
+  border-radius: 10px;
+  z-index: 1;
+  position: relative;
+}
 
 @keyframes fall {
   to {
@@ -31,7 +53,7 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
       overflow-x: hidden;
       color: white;
       font-family: 'Open Sans', sans-serif;
@@ -113,6 +135,22 @@
       box-shadow: 0 0 10px orange;
     }
 
+    .candle .flame {
+  box-shadow: 0 0 20px 10px orange, 0 0 30px 20px gold;
+}
+
+.candle::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 5px;
+  background: radial-gradient(ellipse at center, rgba(255,140,0,0.5) 0%, transparent 80%);
+}
+
+
     .candle .wax {
       width: 100%;
       height: 100%;
@@ -146,8 +184,10 @@
     <h1>Ronny, étoile aventurière</h1>
 
     <div class="photo-frame">
-      <img src="IMG_7924.jpeg" alt="Ronny, chat roux aventurier">
-    </div>
+  <img src="cadre.png" class="cadre" alt="Cadre doré">
+  <img src="IMG_7924.jpeg" class="ronny" alt="Ronny, chat roux aventurier">
+</div>
+
 
     <div class="candles">
       <div class="candle">
@@ -390,9 +430,10 @@
       mon petit roi céleste.</p>
     </div>
 
-     <footer>
-      À jamais dans mon cœur.
-    </footer>
+    <footer style="font-family: 'Great Vibes', cursive; font-size: 1.8em; color: #ffd700;">
+  À jamais dans mon cœur.
+</footer>
+
     <br>
 
 
