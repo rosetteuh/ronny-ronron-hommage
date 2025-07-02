@@ -165,31 +165,31 @@
 
 
 <!-- 🌟 Section hommage : Laissez un mot doux -->
-<section style="text-align: center; padding: 40px 20px; background: #fffaf0;">
-  <h2 style="font-family: serif; color: #c67b00; font-size: 1.8em; margin-bottom: 10px;">
-    ✨ Laissez un mot d’amour pour Ronny ✨
-  </h2>
-  <p style="color: #a65f00; font-style: italic; margin-bottom: 30px;">
-    Vos pensées et souvenirs réchaufferont son étoile à jamais.
-  </p>
-</section>
+<section style="text-align: center; padding: 40px 20px;">
+  <div style="background: #fffaf0; display: inline-block; padding: 20px; border-radius: 10px;">
+    <h2 style="font-family: serif; color: #c67b00; font-size: 1.8em; margin-bottom: 10px;">
+      ✨ Laissez un mot d’amour pour Ronny ✨
+    </h2>
+    <p style="color: #a65f00; font-style: italic; margin-bottom: 0;">
+      Vos pensées et souvenirs réchaufferont son étoile à jamais.
+    </p>
+  </div>
 
   <!-- 📝 Bloc Disqus -->
-  <div id="disqus_thread"></div>
+  <div id="disqus_thread" style="margin-top: 30px;"></div>
   <script>
     var disqus_config = function () {
-      this.page.url = window.location.href;  // L'URL de ta page hommage
-      this.page.identifier = "ronny-page";   // Un identifiant unique (garde-le si tu n'as qu'une page)
+      this.page.url = window.location.href;
+      this.page.identifier = "ronny-page";
     };
     (function() {
       var d = document, s = d.createElement('script');
-      s.src = 'https://ronnyhommage.disqus.com/embed.js';  // Remplace si ton shortname est différent
+      s.src = 'https://ronnyhommage.disqus.com/embed.js';
       s.setAttribute('data-timestamp', +new Date());
       (d.head || d.body).appendChild(s);
     })();
   </script>
- 
-  </div>
+</section>
 
 </body>
 </html>
