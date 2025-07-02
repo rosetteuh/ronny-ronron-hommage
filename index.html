@@ -72,38 +72,29 @@
       text-shadow: 0 0 10px #ffcc00;
     }
 
-   .photo-frame {
+  .photo-frame {
   position: relative;
-  width: 450px; /* Augmentation de la largeur pour un cadre plus imposant */
-  height: auto;
-  border: 6px solid gold; /* Cadre bien visible et un peu plus épais */
+  width: 450px;
+  margin: 20px auto;
   border-radius: 20px;
-  overflow: hidden;
-  margin: 20px auto; /* Centrer horizontalement avec auto */
   box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
 }
 
+.photo-frame img.ronny,
 .photo-frame img.cadre {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Assure que le cadre remplisse bien toute la zone */
-  pointer-events: none;
-  z-index: 3;
-  border-radius: 20px; /* Pour que le cadre épouse bien les bords arrondis */
-}
-
-.photo-frame img.ronny {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 15px; /* Léger arrondi pour la photo */
-  position: relative;
-  z-index: 2;
-  margin: 0; /* On enlève les marges internes */
+  border-radius: 20px;
 }
+
+.photo-frame img.cadre {
+  position: relative;
+  z-index: 3;
+  margin-top: -450px; /* remonte le cadre pour superposer */
+  pointer-events: none;
+}
+
 
     /* Bougies */
     .candles {
